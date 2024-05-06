@@ -2,13 +2,13 @@ import streamlit as st
 import numpy as np
 import pickle
 
-# Load your model (ensure you have trained and saved your model as 'model.pkl')
 model = pickle.load(open('model.pkl', 'rb'))
 
 # Create the app title
 st.title('Song Hit Predictor')
 
 # Create sliders for input features
+# TODO: Make these to scale rather than just min max
 danceability = st.slider('Danceability', 0.05, 0.99, 0.54)
 energy = st.slider('Energy', 0.0, 1.0, 0.69)
 key = st.slider('Key', 0, 11, 5)
@@ -25,7 +25,6 @@ time_signature = st.slider('Time Signature', 0, 5, 4)
 chorus_hit = st.slider('Chorus Hit', 0.0, 262.62, 40.73)
 sections = st.slider('Sections', 1, 169, 11)
 
-# Predict button
 if st.button('Predict Hit'):
     # Collect features into an array
     input_features = np.array([[danceability, energy, key, loudness, mode, speechiness,
