@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import pickle
 
-model = pickle.load(open('model.pkl', 'rb'))
+model = pickle.load(open('gradient_boosting_model.pkl', 'rb'))
 
 # Create the app title
 st.title('Song Hit Predictor')
